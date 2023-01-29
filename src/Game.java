@@ -26,9 +26,8 @@ public class Game {
 				int randomNameChoose = (int)Math.floor(Math.random() * (randomNames.length -1));
 				String choosenRandomName = randomNames[randomNameChoose];
 				
-				Player virtualPlayer = new Player(initializePlayerNum, choosenRandomName);
-				this.playerList.add(virtualPlayer);
-				
+				Player virtualPlayer = new Player(i+1, choosenRandomName);
+				this.playerList.add(virtualPlayer);				
 			}
 		}
                 
@@ -55,6 +54,16 @@ public class Game {
 		
 		return this.playerList.get(currentPlayerId - 1);
 		
+	}
+	
+	public void declareTheWinner () {
+		System.out.printf("Player %s is the game winner !!\n", this.getCurrentPlayer().getName());
+		for (Player p : this.playerList) {
+			if (p.equals(this.getCurrentPlayer())) {
+				continue;
+			}
+			p.showLose();
+		}
 	}
 
 }

@@ -36,7 +36,7 @@ public class Referee {
 			}
 			
 			initializedName = JOptionPane.showInputDialog(nameInputString);
-			Player newPlayer = new Player(i, initializedName);
+			Player newPlayer = new Player(i+1, initializedName);
 			initializedPlayerList.add(newPlayer);
 			
 		}
@@ -67,7 +67,7 @@ public class Referee {
         		myGame.getCurrentPlayer().notifyScore();
         		nextPlayer();
         	} else {
-            	declareTheWinner();
+            	myGame.declareTheWinner();
             	break;
         	}
         	
@@ -104,7 +104,6 @@ public class Referee {
 		
 		if (currentScore + currentDice == 21) {
 			
-			declareTheWinner();
 			gameEnd = true;
 			
 		} else if (currentScore + currentDice > 21) {
@@ -118,10 +117,6 @@ public class Referee {
 		
 		return gameEnd;
 		
-	}
-	
-	public void declareTheWinner () {
-		System.out.printf("Player %s is the game winner !!", myGame.getCurrentPlayer().getName());
 	}
 	
 }

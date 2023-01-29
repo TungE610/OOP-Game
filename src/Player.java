@@ -16,6 +16,10 @@ public class Player {
 		return this.score;
 	}
 	
+	public int getId () {
+		return this.id;
+	}
+	
 	public String getName () {
 		return this.name;
 	}
@@ -26,6 +30,23 @@ public class Player {
     
     public void notifyScore () {
     	System.out.printf("\nPlayer %s has %d scores !!", this.name, this.score);
+    }
+    
+    public void showLose() {
+    	switch (this.id) {
+    		case 1:
+    			System.out.println("No...");
+    			break;
+    		case 2:
+    			System.out.println("Huhu");
+    			break;
+    		case 3:
+    			System.out.println("I can't lose...");
+    			break;
+    		case 4:
+    			System.out.println("Again?");
+    			break;
+    	}
     }
     
 }
